@@ -1,6 +1,6 @@
 <ion-tabs>
 
-  <ion-tab-bar *ngIf="true" slot="bottom">
+  <ion-tab-bar *ngIf="userType !== 'companion'" slot="bottom">
     <ion-tab-button tab="my-events">
       <ion-icon name="calendar"></ion-icon>
       <ion-label>Eventos</ion-label>
@@ -12,7 +12,7 @@
     </ion-tab-button>
   </ion-tab-bar>
 
-  <ion-tab-bar *ngIf="false" slot="bottom">
+  <ion-tab-bar *ngIf="userType === 'companion'" slot="bottom">
     <ion-tab-button tab="next-events">
       <ion-icon name="calendar"></ion-icon>
       <ion-label>Eventos</ion-label>

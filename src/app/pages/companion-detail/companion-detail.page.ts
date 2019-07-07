@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-companion-detail',
@@ -14,9 +15,15 @@ export class CompanionDetailPage implements OnInit {
     starts: 4,
   };
 
-  constructor() { }
+  constructor(
+    private navCtrl: NavController,
+  ) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.navCtrl.navigateRoot('/login');
   }
 
 }
