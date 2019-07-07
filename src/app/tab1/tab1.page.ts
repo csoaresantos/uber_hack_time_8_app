@@ -1,19 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { AcompanhanteService, Acompanhante } from 'src/app/services/acompanhante.service';
+=======
+import { IdosoService, Idoso } from 'src/app/services/idoso.service';
+>>>>>>> service-idoso
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  templateUrl: './tab1.page.html',
+  styleUrls: ['./tab1.page.scss'],
 })
 export class Tab1Page implements OnInit {
 
-  private acompanhantes: Observable<Acompanhante[]>;
+  private idosos: Observable<Acompanhante[]>;
 
-  constructor(private acompanhanteService: AcompanhanteService) {}
+  constructor(private ideaService: AcompanhanteService) { }
 
   ngOnInit() {
-    this.acompanhantes = this.acompanhanteService.getAcompanhantes();
+    this.idosos = this.ideaService.getAcompanhantes();
   }
 }
