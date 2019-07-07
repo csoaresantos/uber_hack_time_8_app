@@ -25,57 +25,26 @@ export class AcompanhanteService {
     this.acompanhanteCollection = this.afs.collection<Acompanhante>('acompanhantes');
     this.acompanhantes = this.acompanhanteCollection.snapshotChanges().pipe(
       map(actions => {
-        return actions.map(
-          a => {
-            const id = a.payload.doc.id;
-            const nome = a.payload.doc.id;
-            const endereco = a.payload.doc.id;
-            const telefone = a.payload.doc.id;
-            const email = a.payload.doc.id;
-            const nota = a.payload.doc.id;
-            const cpf = a.payload.doc.id;
-            const foto = a.payload.doc.id;
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          console.log("data", data);
 
-            return {
-              id,
-              nome,
-              endereco,
-              telefone,
-              email,
-              nota,
-              cpf,
-              foto
-            }
-          }
-        );
+          return { id, ...data };
+        });
       })
     );
-
   }
 
-  getIdeas(): Observable<Acompanhante[]> {
+  getAcompanhantes(): Observable<Acompanhante[]> {
     return this.acompanhantes;
   }
 
-  getIdea(id: string,
-    nome: string,
-    endereco: string,
-    telefone: string,
-    email: string,
-    nota: string,
-    cpf: string,
-    foto: string): Observable<Acompanhante> {
+  getAcompanhante(id: string): Observable<Acompanhante> {
     return this.acompanhanteCollection.doc<Acompanhante>(id).valueChanges().pipe(
       take(1),
       map(idea => {
         idea.id = id;
-        idea.nome = nome,
-          idea.endereco = endereco,
-          idea.telefone = telefone,
-          idea.email = email,
-          idea.nota = nota,
-          idea.cpf = cpf,
-          idea.foto = foto;
         return idea
       })
     );
