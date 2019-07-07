@@ -1,26 +1,52 @@
-<ion-header>
+<ion-content color="primary">
   <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>Compromissos</ion-title>
   </ion-toolbar>
-</ion-header>
 
-<ion-content color="light">
   <!-- No elderly found -->
   <ion-item *ngIf="events.length === 0">
     <ion-label>Nenhum evento encontrado</ion-label>
   </ion-item>
 
   <!-- Name / Profile Pic -->
-  <ion-card *ngFor="let event of events" (click)="showEventDetail()">
-    <ion-item lines="full" button detail>
+  <ion-card *ngFor="let event of events">
+    <ion-item lines="full" button detail (click)="showEventDetail()">
       <ion-avatar slot="start">
-        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
+        <img [src]="event._elderly.icon" />
       </ion-avatar>
       <ion-text>
         <h3>{{ event.name }}</h3>
-        <p>{{ event.date | date:'EEE dd/MM HH:mm' }}</p>
-        <p *ngIf="event.details"><b>Detalhes:</b> {{ event.details }}</p>
+        <p>{{ event.date | date:'EEEE HH:mm, dd/MM' }}</p>
+        <p>{{ event.address }}</p>
       </ion-text>
+    </ion-item>
+
+    <!-- Compainer -->
+    <ion-item *ngIf="event._companion" lines="none">
+      <ion-avatar slot="start">
+        <img [src]="event._companion.icon" />
+      </ion-avatar>
+      <ion-text>
+        <p>{{ event._companion.name }}</p>
+        <p>
+          <ion-icon name="star" color="warning"></ion-icon>
+          <ion-icon name="star" color="warning"></ion-icon>
+          <ion-icon name="star" color="warning"></ion-icon>
+          <ion-icon name="star" color="warning"></ion-icon>
+          <ion-icon name="star-outline" color="warning"></ion-icon>
+        </p>
+      </ion-text>
+    </ion-item>
+
+    <!-- Searching compainer -->
+    <ion-item *ngIf="!event._companion" lines="none">
+      <ion-icon name="clock" slot="start"></ion-icon>
+      <ion-label>Procurando um acompanhante</ion-label>
     </ion-item>
   </ion-card>
 </ion-content>
