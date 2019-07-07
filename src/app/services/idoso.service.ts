@@ -9,7 +9,7 @@ export interface Idoso {
   endereco: string;
   telefone: string;
   foto: string;
-  _familiar(id): string;
+  _familiar: any;
 }
 
 @Injectable({
