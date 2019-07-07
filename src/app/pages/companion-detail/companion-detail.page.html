@@ -4,14 +4,40 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="light">
+  <ion-item color="light" lines="none"></ion-item>
+
+  <ion-card margin-top>
+    <ion-item lines="full">
+      <ion-avatar slot="start">
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
+      </ion-avatar>
+      <ion-text>
+        <h3>{{ companion.name }}</h3>
+        <p>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+        </p>
+      </ion-text>
+    </ion-item>
+  </ion-card>
+
+  <ion-item color="light" lines="full"></ion-item>
+
   <ion-item lines="full">
-    <ion-avatar slot="start">
-      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
-    </ion-avatar>
+    <ion-label position="floating">Telefone</ion-label>
     <ion-text>
-      <h3>Nome Sobrenome</h3>
-      <p>(31) 99999-9999</p>
+      <p>{{ companion.phone }}</p>
+    </ion-text>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Endereço</ion-label>
+    <ion-text>
+      <p>{{ companion.address }}</p>
     </ion-text>
   </ion-item>
 </ion-content>

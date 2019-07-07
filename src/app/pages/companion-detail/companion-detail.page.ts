@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompanionDetailPage implements OnInit {
 
+  companion = {
+    name: 'João Samaritano',
+    phone: '(31) 99999-9999',
+    address: 'Rua dos Domingos, 135 - Belo Horizonte, MG',
+    starts: 4,
+  };
+
   constructor() { }
 
   ngOnInit() {

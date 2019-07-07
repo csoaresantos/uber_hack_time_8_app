@@ -26,6 +26,24 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'next-events',
+        children: [
+          {
+            path: '',
+            loadChildren: '../pages/next-events/next-events.module#NextEventsPageModule'
+          }
+        ]
+      },
+      {
+        path: 'companion-detail',
+        children: [
+          {
+            path: '',
+            loadChildren: '../pages/companion-detail/companion-detail.module#CompanionDetailPageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/my-events',
         pathMatch: 'full'
