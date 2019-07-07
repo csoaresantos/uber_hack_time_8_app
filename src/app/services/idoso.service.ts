@@ -9,7 +9,7 @@ export interface Idoso {
   endereco: string;
   telefone: string;
   foto: string;
-  familiar: string;
+  _familiar(id): string;
 }
 
 @Injectable({
@@ -26,19 +26,8 @@ export class IdosoService {
         return actions.map(
           a => {
             const id = a.payload.doc.id;
-            const nome = a.payload.doc.id;
-            const endereco = a.payload.doc.id;
-            const telefone = a.payload.doc.id;
-            const foto = a.payload.doc.id;
-            const familiar = a.payload.doc.id;
-            return {
-              id,
-              nome,
-              endereco,
-              telefone,
-              foto,
-              familiar
-            };
+            const data = a.payload.doc.data();
+            return { id, ...data };
           }
         );
       })
@@ -46,15 +35,33 @@ export class IdosoService {
 
   }
 
-  addIdea(idoso: Idoso): Promise<DocumentReference> {
+  getIdosos(): Observable<Idoso[]> {
+    return this.idosos;
+  }
+
+  getIdoso(id: string): Observable<Idoso> {
+    return this.idosoCollection.doc<Idoso>(id).valueChanges().pipe(
+      take(1),
+      map(idoso => {
+        idoso.id = id;
+        return idoso;
+      })
+    );
+  }
+
+  addIdoso(idoso: Idoso): Promise<DocumentReference> {
     return this.idosoCollection.add(idoso);
   }
 
-  updateIdea(idoso: Idoso): Promise<void> {
-    return this.idosoCollection.doc(idoso.id).update({ name: idoso.nome, notes: idoso.endereco });
+  updateIdoso(idoso: Idoso): Promise<void> {
+    return this.idosoCollection.doc(idoso.id).update({ nome: idoso.nome,
+                                                       endereco: idoso.endereco,
+                                                       telefone: idoso.telefone,
+                                                       foto: idoso.foto,
+                                                       familiar: idoso._familiar });
   }
 
-  deleteIdea(id: string): Promise<void> {
+  deleteIdoso(id: string): Promise<void> {
     return this.idosoCollection.doc(id).delete();
   }
 }
