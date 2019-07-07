@@ -13,6 +13,7 @@ export class CompanionDetailPage implements OnInit {
     phone: '(31) 99999-9999',
     address: 'Rua dos Domingos, 135 - Belo Horizonte, MG',
     starts: 4,
+    icon: 'https://cdn2.iconfinder.com/data/icons/circle-avatars-1/128/050_girl_avatar_profile_woman_suit_student_officer-512.png'
   };
 
   constructor(

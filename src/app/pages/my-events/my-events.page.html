@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Meus Eventos</ion-title>
+    <ion-title>Compromissos</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,7 +11,7 @@
   </ion-item>
 
   <!-- Name / Profile Pic -->
-  <ion-card *ngFor="let event of events">
+  <ion-card *ngFor="let event of events" (click)="showEventDetail()">
     <ion-item lines="full" button detail>
       <ion-avatar slot="start">
         <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />

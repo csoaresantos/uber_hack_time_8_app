@@ -8,6 +8,9 @@
 
   <!-- Elderlies list -->
   <ion-item *ngFor="let elderly of elderlies" button detail>
+    <ion-avatar slot="start">
+      <img [src]="elderly.icon" />
+    </ion-avatar>
     <ion-label>
       <h3>{{ elderly.name }}</h3>
       <p>{{ elderly.age }} anos</p>

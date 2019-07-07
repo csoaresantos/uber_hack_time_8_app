@@ -7,11 +7,11 @@
 <ion-content>
   <ion-item lines="none" margin-top>
     <ion-avatar slot="start">
-      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
+      <img [src]="relative.icon" />
     </ion-avatar>
     <ion-text>
-      <h3>Nome Sobrenome</h3>
-      <p>(31) 99999-9999</p>
+      <h3>{{ relative.name }}</h3>
+      <p>{{ relative.phone }}</p>
     </ion-text>
   </ion-item>
 

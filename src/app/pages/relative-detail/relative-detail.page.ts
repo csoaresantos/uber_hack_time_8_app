@@ -8,6 +8,12 @@ import { NavController } from '@ionic/angular';
 })
 export class RelativeDetailPage implements OnInit {
 
+  relative = {
+    name: 'Luiza Antunes',
+    phone: '(31) 99999-9999',
+    icon: 'https://cdn2.iconfinder.com/data/icons/circle-avatars-1/128/050_girl_avatar_profile_woman_suit_student_officer-512.png'
+  };
+
   constructor(
     private navCtrl: NavController,
   ) { }

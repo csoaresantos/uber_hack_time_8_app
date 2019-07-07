@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-my-events',
@@ -28,9 +29,15 @@ export class MyEventsPage implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(
+    private navCtrl: NavController,
+  ) { }
 
   ngOnInit() {
+  }
+
+  showEventDetail() {
+    this.navCtrl.navigateRoot('/event-detail/abc');
   }
 
 }
