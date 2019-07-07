@@ -6,7 +6,8 @@ const routes: Routes = [
   { path: 'companion-detail', loadChildren: './pages/companion-detail/companion-detail.module#CompanionDetailPageModule' },
   { path: 'relative-detail', loadChildren: './pages/relative-detail/relative-detail.module#RelativeDetailPageModule' },
   { path: 'elderly-detail', loadChildren: './pages/elderly-detail/elderly-detail.module#ElderlyDetailPageModule' },
-  { path: 'my-events', loadChildren: './pages/my-events/my-events.module#MyEventsPageModule' }
+  { path: 'my-events', loadChildren: './pages/my-events/my-events.module#MyEventsPageModule' },
+  { path: 'next-events', loadChildren: './pages/next-events/next-events.module#NextEventsPageModule' }
 ];
 @NgModule({
   imports: [

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Próximos Eventos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <!-- No elderly found -->
+  <ion-item *ngIf="events.length === 0" lines="none" padding>
+    <ion-label>Nenhum evento encontrado</ion-label>
+  </ion-item>
+
+  <!-- Name / Profile Pic -->
+  <ion-card *ngFor="let event of events">
+    <ion-item lines="full" button detail="false">
+      <ion-avatar slot="start">
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
+      </ion-avatar>
+      <ion-text>
+        <h3>{{ event.name }}</h3>
+        <p>{{ event._elderly.name }}</p>
+        <p>{{ event.date | date:'EEE dd/MM HH:mm' }}</p>
+      </ion-text>
+    </ion-item>
+    <ion-item button success="false">
+      <ion-icon name="checkmark" slot="start"></ion-icon>
+      <ion-label>Aceitar evento</ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>
+    
