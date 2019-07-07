@@ -53,6 +53,34 @@ export class AcompanhanteService {
 
   }
 
+  getIdeas(): Observable<Acompanhante[]> {
+    return this.acompanhantes;
+  }
+
+  getIdea(id: string,
+    nome: string,
+    endereco: string,
+    telefone: string,
+    email: string,
+    nota: string,
+    cpf: string,
+    foto: string): Observable<Acompanhante> {
+    return this.acompanhanteCollection.doc<Acompanhante>(id).valueChanges().pipe(
+      take(1),
+      map(idea => {
+        idea.id = id;
+        idea.nome = nome,
+          idea.endereco = endereco,
+          idea.telefone = telefone,
+          idea.email = email,
+          idea.nota = nota,
+          idea.cpf = cpf,
+          idea.foto = foto;
+        return idea
+      })
+    );
+  }
+
   addIdea(acompanhante: Acompanhante): Promise<DocumentReference> {
     return this.acompanhanteCollection.add(acompanhante);
   }
