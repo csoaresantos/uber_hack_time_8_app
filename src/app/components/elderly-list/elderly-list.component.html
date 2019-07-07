@@ -1,0 +1,21 @@
+<ion-list>
+  <ion-item-divider>Idosos</ion-item-divider>
+
+  <!-- No elderly found -->
+  <ion-item *ngIf="elderlies.length === 0">
+    <ion-label>Nenhum idoso cadastrado</ion-label>
+  </ion-item>
+
+  <!-- Elderlies list -->
+  <ion-item *ngFor="let elderly of elderlies">
+    <ion-label>
+      <h3>{{ elderly.name }}</h3>
+      <p>{{ elderly.age }} anos</p>
+    </ion-label>
+  </ion-item>
+
+  <ion-item lines="full" button detail="false">
+    <ion-icon name="add" slot="start"></ion-icon>
+    <ion-label>Cadastrar novo idoso</ion-label>
+  </ion-item>
+</ion-list>
