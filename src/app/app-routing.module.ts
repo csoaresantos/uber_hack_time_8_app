@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'next-events', loadChildren: './pages/next-events/next-events.module#NextEventsPageModule' },
   { path: 'event-detail', loadChildren: './pages/event-detail/event-detail.module#EventDetailPageModule' },
   { path: 'login-screen', loadChildren: './login/login-screen/login-screen.module#LoginScreenPageModule' },
+  { path: 'send-event', loadChildren: './pages/send-event/send-event.module#SendEventPageModule' },
 ];
 @NgModule({
   imports: [
