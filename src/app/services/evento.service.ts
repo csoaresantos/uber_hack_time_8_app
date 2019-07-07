@@ -1,3 +1,4 @@
+import { Acompanhante } from 'src/app/services/acompanhante.service';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentReference } from '@angular/fire/firestore';
 import { map, take } from 'rxjs/operators';
@@ -36,6 +37,21 @@ export class EventoService {
       })
     );
 
+  }
+
+
+  getEventos(): Observable<Evento[]> {
+    return this.eventos;
+  }
+
+  getEvento(id: string): Observable<Evento> {
+    return this.eventoCollection.doc<Evento>(id).valueChanges().pipe(
+      take(1),
+      map(evento => {
+        evento.id = id;
+        return evento;
+      })
+    );
   }
 
   addEvento(evento: Evento): Promise<DocumentReference> {
