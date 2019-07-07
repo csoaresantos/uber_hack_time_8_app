@@ -4,24 +4,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-item-divider></ion-item-divider>
-
+<ion-content color="light">
   <!-- No elderly found -->
   <ion-item *ngIf="events.length === 0">
     <ion-label>Nenhum evento encontrado</ion-label>
   </ion-item>
 
   <!-- Name / Profile Pic -->
-  <ion-item *ngFor="let event of events" lines="full" button detail>
-    <ion-avatar slot="start">
-      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
-    </ion-avatar>
-    <ion-text>
-      <h3>{{ event.name }}</h3>
-      <p>{{ event.date | date:'EEE dd/MM HH:mm' }}</p>
-      <p *ngIf="event.details"><b>Detalhes:</b> {{ event.details }}</p>
-    </ion-text>
-  </ion-item>
+  <ion-card *ngFor="let event of events">
+    <ion-item lines="full" button detail>
+      <ion-avatar slot="start">
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
+      </ion-avatar>
+      <ion-text>
+        <h3>{{ event.name }}</h3>
+        <p>{{ event.date | date:'EEE dd/MM HH:mm' }}</p>
+        <p *ngIf="event.details"><b>Detalhes:</b> {{ event.details }}</p>
+      </ion-text>
+    </ion-item>
+  </ion-card>
 </ion-content>
     
