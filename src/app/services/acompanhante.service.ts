@@ -37,7 +37,7 @@ export class AcompanhanteService {
             const foto = a.payload.doc.id;
 
             return {
-              id, 
+              id,
               nome,
               endereco,
               telefone,
@@ -56,11 +56,21 @@ export class AcompanhanteService {
   addIdea(acompanhante: Acompanhante): Promise<DocumentReference> {
     return this.acompanhanteCollection.add(acompanhante);
   }
- 
+
   updateIdea(acompanhante: Acompanhante): Promise<void> {
-    return this.acompanhanteCollection.doc(acompanhante.id).update({ name: acompanhante.nome, notes: acompanhante.endereco });
+    return this.acompanhanteCollection.doc(acompanhante.id).update(
+      {
+        id: acompanhante.endereco,
+        nome: acompanhante.endereco,
+        endereco: acompanhante.endereco,
+        telefone: acompanhante.endereco,
+        email: acompanhante.endereco,
+        nota: acompanhante.endereco,
+        cpf: acompanhante.endereco,
+        foto: acompanhante.endereco
+      });
   }
- 
+
   deleteIdea(id: string): Promise<void> {
     return this.acompanhanteCollection.doc(id).delete();
   }
