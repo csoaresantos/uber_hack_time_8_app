@@ -1,0 +1,53 @@
+<ion-content color="primary">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Compromissos</ion-title>
+  </ion-toolbar>
+
+  <!-- No elderly found -->
+  <ion-item *ngIf="events.length === 0">
+    <ion-label>Nenhum evento encontrado</ion-label>
+  </ion-item>
+
+  <!-- Name / Profile Pic -->
+  <ion-card *ngFor="let event of events">
+    <ion-item lines="full" button detail (click)="showEventDetail()">
+      <ion-avatar slot="start">
+        <img [src]="event._elderly.icon" />
+      </ion-avatar>
+      <ion-text>
+        <h3>{{ event.name }}</h3>
+        <p>{{ event.date | date:'EEEE HH:mm, dd/MM' }}</p>
+        <p>{{ event.address }}</p>
+      </ion-text>
+    </ion-item>
+
+    <!-- Compainer -->
+    <ion-item *ngIf="event._companion" lines="none">
+      <ion-avatar slot="start">
+        <img [src]="event._companion.icon" />
+      </ion-avatar>
+      <ion-text>
+        <p>{{ event._companion.name }}</p>
+        <p>
+          <ion-icon name="star" color="warning"></ion-icon>
+          <ion-icon name="star" color="warning"></ion-icon>
+          <ion-icon name="star" color="warning"></ion-icon>
+          <ion-icon name="star" color="warning"></ion-icon>
+          <ion-icon name="star-outline" color="warning"></ion-icon>
+        </p>
+      </ion-text>
+    </ion-item>
+
+    <!-- Searching compainer -->
+    <ion-item *ngIf="!event._companion" lines="none">
+      <ion-icon name="clock" slot="start"></ion-icon>
+      <ion-label>Procurando um acompanhante</ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>
+    

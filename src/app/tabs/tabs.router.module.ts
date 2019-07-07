@@ -4,46 +4,55 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'my-events',
         children: [
           {
             path: '',
-            loadChildren: '../tab1/tab1.module#Tab1PageModule'
+            loadChildren: '../pages/my-events/my-events.module#MyEventsPageModule'
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'relative-detail',
         children: [
           {
             path: '',
-            loadChildren: '../tab2/tab2.module#Tab2PageModule'
+            loadChildren: '../pages/relative-detail/relative-detail.module#RelativeDetailPageModule'
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'next-events',
         children: [
           {
             path: '',
-            loadChildren: '../tab3/tab3.module#Tab3PageModule'
+            loadChildren: '../pages/next-events/next-events.module#NextEventsPageModule'
+          }
+        ]
+      },
+      {
+        path: 'companion-detail',
+        children: [
+          {
+            path: '',
+            loadChildren: '../pages/companion-detail/companion-detail.module#CompanionDetailPageModule'
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/my-events',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/my-events',
     pathMatch: 'full'
   }
 ];

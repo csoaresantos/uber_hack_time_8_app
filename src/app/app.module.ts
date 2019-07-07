@@ -13,6 +13,11 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 
+import { LOCALE_ID } from '@angular/core';
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localePt, 'pt');
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -21,6 +26,7 @@ import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/fi
   providers: [
     StatusBar,
     SplashScreen,
+    { provide: LOCALE_ID, useValue: 'pt' },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: FirestoreSettingsToken, useValue: {} }
   ],

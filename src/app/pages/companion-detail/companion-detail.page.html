@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Seu Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-item color="light" lines="none"></ion-item>
+
+  <ion-card margin-top>
+    <ion-item lines="full">
+      <ion-avatar slot="start">
+        <img [src]="companion.icon" />
+      </ion-avatar>
+      <ion-text>
+        <h3>{{ companion.name }}</h3>
+        <p>
+          <ion-icon name="star" color="warning"></ion-icon>
+          <ion-icon name="star" color="warning"></ion-icon>
+          <ion-icon name="star" color="warning"></ion-icon>
+          <ion-icon name="star" color="warning"></ion-icon>
+          <ion-icon name="star-outline" color="warning"></ion-icon>
+        </p>
+      </ion-text>
+    </ion-item>
+  </ion-card>
+
+  <ion-item color="light" lines="full"></ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Telefone</ion-label>
+    <ion-text>
+      <p>{{ companion.phone }}</p>
+    </ion-text>
+  </ion-item>
+
+  <ion-item lines="full">
+    <ion-label position="floating">Endereço</ion-label>
+    <ion-text>
+      <p>{{ companion.address }}</p>
+    </ion-text>
+  </ion-item>
+
+  <ion-item color="light" lines="full"></ion-item>
+
+  <ion-item lines="full" button detail="false" (click)="logout()">
+    <ion-icon name="log-out" mode="ios" slot="start"></ion-icon>
+    <ion-label>
+      Sair
+    </ion-label>
+  </ion-item>
+</ion-content>

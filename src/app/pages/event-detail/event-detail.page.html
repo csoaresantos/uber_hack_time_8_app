@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalhes do Evento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card margin-top margin-bottom>
+    <ion-item lines="full" button detail="false">
+      <ion-avatar slot="start">
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
+      </ion-avatar>
+      <ion-text>
+        <p>{{ event._elderly.name }}</p>
+        <p>{{ event.date | date:'EEE dd/MM HH:mm' }}</p>
+      </ion-text>
+    </ion-item>
+  </ion-card>
+
+  <ion-item-divider></ion-item-divider>
+
+  <ion-item lines="full" button detail="false">
+    <ion-label position="stacked">Nome do Evento</ion-label>
+    <ion-text>
+      <p>{{ event.name }}</p>
+    </ion-text>
+  </ion-item>
+
+  <ion-item lines="full" button detail="false">
+    <ion-label position="stacked">Horário</ion-label>
+    <ion-text>
+      <p>{{ event.date | date:'EEE dd/MM HH:mm' }}</p>
+    </ion-text>
+  </ion-item>
+
+  <ion-item lines="full" button detail="false">
+    <ion-label position="stacked">Endereço</ion-label>
+    <ion-text>
+      <p>{{ event.address }}</p>
+    </ion-text>
+  </ion-item>
+
+  <ion-item lines="full" button detail="false">
+    <ion-label position="stacked">Detalhes</ion-label>
+    <ion-text>
+      <p>{{ event.details }}</p>
+    </ion-text>
+  </ion-item>
+</ion-content>
+    

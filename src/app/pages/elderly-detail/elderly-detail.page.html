@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Perfil do Idoso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- Name / Profile Pic -->
+  <ion-item lines="full">
+    <ion-avatar slot="start">
+      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
+    </ion-avatar>
+    <ion-text>
+      <h3>{{ elderly.name }}</h3>
+      <p>{{ elderly.age }} anos</p>
+    </ion-text>
+  </ion-item>
+
+  <!-- Phone -->
+  <ion-item lines="full">
+    <ion-label position="fixed">Telefone</ion-label>
+    <ion-label>{{ elderly.phone }}</ion-label>
+  </ion-item>
+
+  <!-- Address -->
+  <ion-item lines="full">
+    <ion-label position="fixed">Endereço</ion-label>
+    <ion-text>{{ elderly.address }}</ion-text>
+  </ion-item>
+
+</ion-content>
+  
