@@ -36,6 +36,7 @@ Para o desenvolvimento do projeto, tentamos utilizar a arquitetura MVC. Além de
 ## Equipe 8
 
 - Italo Lelis
+- Davidson Lima
 - Charles Soares
 - Caroline Garcêz
 - Gabriel Gomes
